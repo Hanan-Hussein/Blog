@@ -3,6 +3,7 @@ from app.config import config_options
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 
+db = SQLAlchemy()
 login_manager = LoginManager()
 login_manager.login_view = ''
 
@@ -14,5 +15,6 @@ def create_app(config_name):
 
   app.config.from_object(config_options[config_name])
   login_manager.init_app(app)
+  db.init_app(app)
   return app
 
