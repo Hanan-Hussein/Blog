@@ -27,5 +27,9 @@ class Posts(db.Model):
   title=db.Column(db.String,nullable=False)
   content=db.Column(db.String,nullable=False)
   blog_image=db.Column(db.String,nullable=False)
+  comments= db.Column(db.String, default='')
   date_created = db.Column(db.Date, nullable=False, default=datetime.utcnow)
   user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+  
+  def __repr__(self):
+      return f"id: {self.id} , title: {self.title}"
