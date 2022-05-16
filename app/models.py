@@ -1,7 +1,7 @@
 from datetime import datetime
 from flask_login import UserMixin
 
-from . import db,login_manager
+from app import db,login_manager
 
 @login_manager.user_loader
 def login_manager(user_id):
@@ -14,7 +14,7 @@ class User(db.Model,UserMixin):
   username=db.Column(db.String,nullable=False,unique=True)
   email=db.Column(db.String,nullable=False,unique=True)
   password=db.Column(db.String,nullable=False)
-  profile=db.Column(db.String,nullable=False)
+  image_file=db.Column(db.String(20),nullable=False,default='default.png')
   post = db.relationship('Posts', backref='author', lazy=True)
 
   def __repr__(self):

@@ -2,8 +2,8 @@ class Config:
   """
   This are the configurations for the application
   """
-  SQLALCHEMY_DATABASE_URI = 'sqlite:///site.db'
-  SQLALCHEMY_TRACK_MODIFICATIONS=True
+  # SQLALCHEMY_TRACK_MODIFICATIONS=True
+  SQLALCHEMY_DATABASE_URI='sqlite:///site.db'
 
   SECRET_KEY ='bc84445981640e5a26fadc7a406f9ff0'
 class ProdConfig(Config):
