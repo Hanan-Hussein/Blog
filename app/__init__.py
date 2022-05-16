@@ -29,9 +29,13 @@ def create_app(config_name):
     bootstrap.init_app(app)
     from app.users.routes import users
     from app.main.routes import main
+    from app.posts.routes import posts
+
 
     app.register_blueprint(main)
     app.register_blueprint(users)
+    app.register_blueprint(posts)
+
 
     return app
 

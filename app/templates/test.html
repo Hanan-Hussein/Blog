@@ -1,58 +1,274 @@
-<div class="container-fluid ps-md-0">
-  <div class="row g-0">
-    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
-    <div class="col-md-8 col-lg-6">
-      <div class="login d-flex align-items-center py-5">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-9 col-lg-8 mx-auto">
-              <h3 class="login-heading mb-4" style="font-weight: bold;">Sign In</h3>
-              <form action="" method="post">
-                {{form.hidden_tag()}}
-                <div class="form-group">
-                    {{form.email.label(class='form-control-label')}}
-                        {% if form.email.errors %}
-                        {{form.email(class='form-control is-invalid')}}
-                            {% for error in form.email.errors %}
-                                <div class="invalid-feedback">
-                                    {{error}}
-                                </div>
-                            {% endfor %}
-                    {% else %}
-                        {{form.email(class='form-control')}}
-                    {% endif %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Guide</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/darkmode.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <!-- navbar -->
+    <div id="bgOverall" class="p-0 m-0">
+        <div class="bgImage mb-5">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+                <div class="container-fluid">
+                    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+                            <li class="nav-item mx-2">
+                                <a class="nav-link active  text-black" aria-current="page" href="./index.html">Home</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link text-black" href="./pages/nairobi.html">Nairobi</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link text-black" href="./pages/mombasa.html">Mombasa</a>
+                            </li>
+
+                        </ul>
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto ">
+                            <li class="nav-item mx-2">
+                                <a class="nav-link text-black" href="./pages/kisumu.html">Kisumu</a>
+                            </li>
+
+                            <li class="nav-item mx-2">
+                                <a class="nav-link text-black" href="./pages/booking.html">Tours</a>
+                            </li>
+                            <li class="nav-item mx-2 my-2">
+                                <a href="nav-link" class="text-black d-inline" id="darkMode"> <span class=" text-center iconify" data-icon="ic:round-dark-mode"></span>
+                                </a>
+                                <!-- <a class="nav-link text-black" href="./pages/nakuru.html">Nakuru</a> -->
+                            </li>
+                        </ul>
+                        <!-- <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form> -->
+                    </div>
                 </div>
-                <div class="form-group my-3">
-                    {{form.password.label(class='form-control-label')}}
-                    {% if form.password.errors %}
-                    {{form.password(class='form-control is-invalid')}}
-                        {% for error in form.password.errors %}
-                            <div class="invalid-feedback">
-                                {{error}}
-                            </div>
-                        {% endfor %}
-                {% else %}
-                    {{form.password(class='form-control')}}
-                {% endif %}
-                </div>
-                <!-- Remember -->
-                <div class="form-check form-switch">
-                    {{form.remember.label(class='form-check-label')}}
-                    {{form.remember(class="form-check-input")}}
-                </div>
-                <div class="text-center mt-3">
-                    {{form.submit(class='btn btn-outline')}}
-                </div>
-                <small class="text-muted ml-2 ">
-                </small>
-            </form>
-            <div class="text-muted ">
-                <small>Need an account ? <a href="{{url_for('users.register')}}">Sign Up</a></small>
+            </nav>
+            <div class="frost">
+
             </div>
+            <div class="country text-align-center">
+                <p class="h1"><b><span class="ken">KEN</span>YA</b></p>
             </div>
-          </div>
+            <div class="container-fluid discover mx-5 d-flex flex-column ">
+                <p class="text-white h5 ">
+                    Discover The Cities Within</p>
+                <p class="tagline ">Your trusted guide
+                </p>
+            </div>
         </div>
-      </div>
+        <!-- brands -->
+        <div class="container  align-items-center my-5">
+            <img src="./assets/safaricom_new_logo.svg" class="uber mx-3" alt=" ">
+            <img src="./assets/Uber-Logo-PNG10.png" class="uber mx-3" alt=" ">
+            <img src="./assets/DHL-Logo-PNG10.png" class="dhl mx-3" alt=" ">
+            <img src="./assets/Mastercard-Logo-PNG10.png" class="uber mx-3" alt="">
+            <img src="./assets/Bitcoin-Logo-PNG10.png" class="uber mx-3" alt="">
+            <!-- <div class="row ">
+                <div class="col-md-3 ">
+                    <img src="./assets/safaricom_new_logo.svg " alt=" ">
+                </div>
+                <div class="col-md-3 ">
+                    <img src="./assets/Uber-Logo-PNG10.png" class="uber" alt=" ">
+                </div>
+                <div class="col-md-3 ">
+                    <img src="./assets/safaricom_new_logo.svg" alt=" ">
+                </div>
+                <div class="col-md-3 ">
+                    <img src="./assets/safaricom_new_logo.svg " alt=" ">
+                </div>
+            </div> -->
+        </div>
+        <!-- about Us -->
+
+        <div class="container ">
+            <div class="row ">
+                <div class="col-md-7 hand mx-5 col-sm-6 ">
+                    <img src="./assets/hand.png " class="handImg " alt=" ">
+                    <img src="./assets/rectangleFrame.png " class="rectFrame " alt=" ">
+                    <!-- <img src="./assets/Shape.png " class="vector1 " alt=" "> -->
+
+                </div>
+
+                <div class="col-md-3 goals col-sm-6 ">
+                    <div class="who mb-3 px-3 ">
+                        <p class="text-center "><b>WHO WE ARE</b></p>
+                        <p class="mx-3 ">A company suited to provide the best city experience</p>
+                    </div>
+                    <div class="mission mb-3 px-3 ">
+                        <p class="text-center "><b>OUR MISSION</b></p>
+                        <p class="mx-3 ">To manouver through the city with ease
+                        </p>
+                    </div>
+                    <div class="who px-3 ">
+                        <p class="text-center "><b>OUR VISION</b></p>
+                        <p class="mx-3 ">To make your travel experience enjoyable and fulfilling
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- explore the city -->
+        <div class="container d-flex flex-column justify-content-center" id="portfolioImages">
+            <p class="h4 my-5 "><b>Explore the cities</b></p>
+            <div class="row cities ">
+                <div class="col-md-3 col-sm-4 col-xs-6 my-3 position-relative ">
+                    <!-- <p class="hoverText h5 ">Nairobi</p> -->
+                    <a href="./pages/nairobi.html" class="hoverText h5">Nairobi</a>
+                    <img src="./assets/tree.jpg " class="res " alt=" ">
+
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-6 my-5 position-relative ">
+                    <a href="./pages/mombasa.html" class="hoverText h5">Mombasa</a>
+
+                    <img src="./assets/tree.jpg " class="res " alt=" ">
+
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-6 my-3 position-relative ">
+                    <a href="./pages/kisumu.html" class="hoverText h5">Kisumu</a>
+
+                    <img src="./assets/tree.jpg " class="res " alt=" ">
+
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-6 my-5 position-relative ">
+                    <a href="" class="hoverText h5">Nakuru</a>
+
+                    <img src="./assets/tree.jpg " class="res " alt=" ">
+
+                </div>
+            </div>
+        </div>
+        <!-- plan a trip -->
+        <div class="container ">
+            <p class="h4 my-5 "><b>Plan a trip</b></p>
+            <div class="row row-cols-1 row-cols-md-3 g-4 mb-4">
+                <div class="col">
+                    <div class="card">
+                        <img src="./assets/dunga beach.jpg" class="card-img-top  " alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title beach">Dunga Beach</h5>
+                            <p class="card-text beach">Visit the famous dunga beach in limuru for only KSH 1000</p>
+                            <div class="d-flex justify-content-end"> <button class="btn btn-primary book">Book now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <img src="./assets/mount_kenya.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title beach">Hike Mount Kenya</h5>
+                            <p class="card-text beach">Hike the famous mount kenya ,pay only 50,0000 for 5 nights</p>
+                            <div class="d-flex justify-content-end"> <button class="btn btn-primary book">Book now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <img src="./assets/tea_fam.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title beach">Visit a tea farm</h5>
+                            <p class="card-text beach">Visit the famous tea farms in limuru for only KSH 1000</p>
+                            <div class="d-flex justify-content-end"> <button class="btn btn-primary book">Book now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="footerbg">
+            <!-- <div class="d-flex footerlogo ">
+                <div class="d-flex flex-row">
+                    <img src="../../assets/logo2.svg" width="70" height="70" alt="">
+                    <p class=" logoText1">Apollo <br> Library.
+                    </p>
+                </div>
+            </div> -->
+            <div class="footerlogo">
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="footerlist">
+                            <ul class="stuff">
+                                <li>Email Marketing</li>
+                                <li>Our Story</li>
+                                <li>FAQ</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="footerlist">
+                            <ul class="stuff">
+                                <li>Contacts</li>
+                                <li>Phone Number</li>
+                                <li>Email</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="footerlist">
+                            <ul class="stuff">
+                                <li>+25413456787</li>
+                                <li>Email</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <ion-icon name="logo-facebook" class="text-dark mx-1"></ion-icon>
+                        <ion-icon name="logo-twitter" class="text-dark mx-1"></ion-icon>
+                        <ion-icon name="logo-instagram" class="text-dark mx-1"></ion-icon>
+                    </div>
+                </div>
+
+                <div class="footerlogo">
+                    <div class="row py-4">
+                        <div class="col-md-6">
+                            <p class="text-muted">Copyright @ 2022 City Guide All rights reserved</p>
+                        </div>
+                        <!-- <div> -->
+                        <div class=" col-md-2">
+                            <p> Terms & Conditions</p>
+                        </div>
+                        <div class="col-md-2">
+                            <p>Privacy Policy</p>
+
+                        </div>
+                        <!-- </div> -->
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
     </div>
-  </div>
-</div>
+
+    <script src="https://code.iconify.design/2/2.2.0/iconify.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js " integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=" anonymous " referrerpolicy="no-referrer "></script>
+    <script src="./js/darkmode.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
+
+</html>

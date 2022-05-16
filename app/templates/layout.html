@@ -15,7 +15,7 @@
 
 <body>
     <!-- Nav Bar------------------------------------------------ -->
-
+   
     {% with messages = get_flashed_messages(with_categories = true) %}
     {% if messages %}
     {%for category,message in messages %}
@@ -25,6 +25,15 @@
     {%endfor%}
     {% endif %}
     {% endwith %}
+      
+    {% if request.url_rule.endpoint!='register' %}
+
+      {% block navbar %}
+      {% include 'nav.html' %}
+      {% endblock %}
+    {% endif %}
+
+
     {% block body %}
 
     {% endblock %}
