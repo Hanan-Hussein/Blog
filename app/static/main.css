@@ -1,5 +1,40 @@
-*{
-  margin:0;
-  padding:0;
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+}
+
+.bg-image {
+  background-image: url('../static/assets/profilepics/register.png');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.login {
+  min-height: 100vh;
+  background-color: #EAE2B7;
+}
+
+.btn-login {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+  color: #FFFFFF;
+  background-color: #3A6351;
+}
+
+.btn-login:hover {
+  background-color: #3A6351;
+  color:#FFFFFF
+}
+.login-image{
+  background-image: url('../static/assets/profilepics/login.png');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+.all_border,.all_border:hover {
+  border-color: #656565;
+  background-color:transparent
 }
