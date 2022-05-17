@@ -60,6 +60,9 @@ body{
   box-shadow: none !important;
   color: #FFFFFF;
 }
+.add{
+  height: 2rem;
+}
 .card-border{
   border: none !important;
 }

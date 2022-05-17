@@ -1,13 +1,11 @@
 from flask import Blueprint
 from flask_login import login_user, current_user, logout_user, login_required
-from app.posts.forms import PostForm
+from app.posts.forms import PostForm,CommentsForm
 from app.models import Posts
 from app import db
 from flask import render_template, url_for, flash, redirect, request
 from app.users.utils import save_postsImage,save_picture
 posts= Blueprint('posts',__name__)
-
-
 
 @posts.route('/create', methods=['POST', 'GET'])
 @login_required
@@ -56,7 +54,8 @@ def post_edit(postid):
         edites.title = form.title.data
         edites.content=form.content.data
         edites.category=form.category.data
-        
+        edites.description=form.description.data
+
         db.session.add(edites)
         db.session.commit()
         flash('Your Post Has been updated!','success')
@@ -65,8 +64,8 @@ def post_edit(postid):
         form.title.data=edites.title
         form.content.data=edites.content
         form.category.data=edites.category
-        
-    return render_template('post_edit.html',form=form)
+        form.description.data=edites.description
+    return render_template('edit.html',form=form)
 
 @posts.route('/post/delete/<postid>')
 def post_delete(postid):
@@ -84,3 +83,18 @@ def reads(postid):
 
     return render_template('reads.html', reads=reads,image_file=image_file)
     
+
+@posts.route('/comments/<id>',methods=['POST', 'GET'])
+def comments(id):
+    form = CommentsForm()
+    posts = Posts.query.filter_by(id=id).first()
+    if form.validate_on_submit():
+        posts.comments+=form.content.data + '~'
+        db.session.commit()
+        flash('Your comment was added successfully')
+        
+        return redirect(url_for('main.home'))
+    form.content.data = "Your comment here"
+    return render_template('comments.html', form=form , posts=posts)
+
+

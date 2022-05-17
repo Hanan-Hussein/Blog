@@ -1,0 +1,84 @@
+
+{% extends 'layout.html' %}
+{% block body %}
+<div class="container-fluid nav-page">
+    <div class="container  bg-light mt-2 p-3 w-50">
+        <form action="" method="post" enctype="multipart/form-data">
+            {{form.hidden_tag()}}
+            <h3 class="text-center">Create Blog</h3>
+            <div class="form-group categories">
+                {{form.category.label(class='form-control-label')}}
+                    {% if form.category.errors %}
+                        {{form.category(class='form-control is-invalid')}}
+                            {% for error in form.category.errors %}
+                                <div class="invalid-feedback">
+                                    {{error}}
+                                </div>
+                            {% endfor %}
+                    {% else %}
+                        {{form.category(class='form-control categories list-unstyled bg-transparent')}}
+                    {% endif %}
+            </div>
+            <div class="form-group">
+                {{form.title.label(class='form-control-label')}}
+                    {% if form.title.errors %}
+                        {{form.title(class='form-control is-invalid')}}
+                            {% for error in form.title.errors %}
+                                <div class="invalid-feedback">
+                                    {{error}}
+                                </div>
+                            {% endfor %}
+                    {% else %}
+                        {{form.title(class='form-control bg-transparent',placeholder="Enter Blog Title")}}
+                    {% endif %}
+            </div>
+            <div class="form-group">
+                {{form.description.label(class='form-control-label')}}
+                    {% if form.description.errors %}
+                    {{form.description(class='form-control is-invalid')}}
+                        {% for error in form.description.errors %}
+                            <div class="invalid-feedback">
+                                {{error}}
+                            </div>
+                        {% endfor %}
+                {% else %}
+                    {{form.description(class='form-control bg-transparent',placeholder="Enter Blog Description")}}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{form.content.label(class='form-control-label')}}
+                    {% if form.content.errors %}
+                    {{form.content(class='form-control is-invalid')}}
+                        {% for error in form.content.errors %}
+                            <div class="invalid-feedback">
+                                {{error}}
+                            </div>
+                        {% endfor %}
+                {% else %}
+                    {{form.content(class='form-control bg-transparent',placeholder="Enter Blog Content")}}
+                {% endif %}
+            </div>
+           
+            <div class="form-group">
+                {{form.blog_image.label(class='form-control-label')}}
+                    {% if form.blog_image.errors %}
+                    {{form.blog_image(class='form-control is-invalid')}}
+                        {% for error in form.blog_image.errors %}
+                            <div class="invalid-feedback">
+                                {{error}}
+                            </div>
+                        {% endfor %}
+                {% else %}
+                    {{form.blog_image(class='form-control bg-transparent choose',placeholder="Choose a blog image")}}
+                {% endif %}
+            </div>
+            
+            <div class="text-center my-3">
+                {{form.submit(class='btn btn-outline post_submit ')}}
+            </div>
+        </form>
+     
+    </div>
+</div>
+
+{% endblock %}
