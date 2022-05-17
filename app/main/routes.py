@@ -1,6 +1,7 @@
 from app.models import User, Posts
 from flask import render_template, Blueprint
 from flask import render_template, url_for, flash, redirect, request
+from sqlalchemy import asc, desc
 
 main = Blueprint('main', __name__)
 
@@ -8,7 +9,7 @@ main = Blueprint('main', __name__)
 @main.route('/')
 def home():
     # All Posts here
-    posts = Posts.query.all()
+    posts = Posts.query.order_by(desc(Posts.date_created)).limit(3).all()
     headline=Posts.query.filter_by(id=1).first()
 
     for post in posts:

@@ -17,9 +17,13 @@
         <img class="card-img-top" src="{{post.blog_image}}" alt="Card image" style="width:100%">
 
         <div class="card-body mx-0 px-0"> 
+          <div class="d-flex justify-content-between">
+            <p class="text-muted">{{post.category}}</p>
+            <p class="text-muted">{{post.date_created}}</p>
+          </div>
           <h4 class="card-title mx-0 px-0">{{post.title}}</h4>
           <p class="card-text">{{post.description}}</p>
-          <a href="#" class="btn btn-primary homebtn">Read article</a>
+          <a href="{{url_for('posts.reads',postid=post.id)}}" class="btn btn-primary homebtn">Read article</a>
         </div>
       </div>
     </div>

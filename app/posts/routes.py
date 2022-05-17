@@ -78,3 +78,12 @@ def post_delete(pitchid):
     db.session.commit()
     return redirect(url_for('main.home'))
 
+@posts.route('/post/<postid>')
+def reads(postid):
+
+    reads= Posts.query.filter_by(id=postid).first()
+
+    image_file= url_for('static',filename='posts/'+reads.blog_image)
+
+    return render_template('reads.html', reads=reads,image_file=image_file)
+    

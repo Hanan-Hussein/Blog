@@ -6,7 +6,9 @@
 body{
   background-color:#EAE2B7 ;
 }
-
+.readmore{
+  line-height: 2rem; 
+}
 .bg-image {
   background-image: url('../static/assets/profilepics/register.png');
   background-size: cover;

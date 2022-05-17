@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block body %}
+  <div class="container">
+
+    <img src="{{image_file}}" alt="">
+
+    <h3 class="my-3">{{reads.title}}</h3>
+    <p class="readmore">
+      {{reads.content}}
+    </p>
+  </div>
+{% endblock %}
