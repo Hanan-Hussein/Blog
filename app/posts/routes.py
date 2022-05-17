@@ -16,20 +16,19 @@ def create():
     form = PostForm()
     if form.validate_on_submit():
         if form.blog_image.data:
-          picture=save_postsImage(form.blog_image.data)
-          post = Posts(title=form.title.data,
+            picture=save_postsImage(form.blog_image.data)
+            post = Posts(title=form.title.data,
                         content=form.content.data, user_id=current_user.id,category=form.category.data,
                         blog_image=picture)
         
-          db.session.add(post)  
-          db.session.commit()
-          flash('Your pitch was successfully added','success')
+            db.session.add(post)  
+            db.session.commit()
+            flash('Your pitch was successfully added','success')
 
-          return redirect(url_for('main.home'))
+            return redirect(url_for('main.home'))
 
 
         else:
-          
           flash('Your pitch image was not added','danger')
           
 

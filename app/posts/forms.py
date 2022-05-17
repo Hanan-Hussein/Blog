@@ -11,9 +11,9 @@ class PostForm(FlaskForm):
     title=StringField('Title', validators=[DataRequired()])
     content=TextAreaField('Content', validators=[DataRequired(),Length(min=2, max=300)])
     blog_image= FileField('Post Image', validators=[FileAllowed(['jpg','png'])])
+    category=RadioField('Category', choices = [('Food','Food'),('Technology','Technology'),('Fashion','Fashion'),('Travel','Travel')])
 
     submit = SubmitField('Create Post')
-    category=RadioField('Category', choices = [('Food','Food'),('Technology','Technology'),('Fashion','Fashion'),('Travel','Travel')])
     
 
     
