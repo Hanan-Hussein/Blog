@@ -9,7 +9,12 @@ main = Blueprint('main', __name__)
 def home():
     # All Posts here
     posts = Posts.query.all()
-    for post in posts:
-        image_file= url_for('static',filename='profiles/'+post.blog_image)
+    headline=Posts.query.filter_by(id=1).first()
 
-    return render_template('index.html',posts=posts,image_file=image_file)
+    for post in posts:
+        image_file= url_for('static',filename='posts/'+post.blog_image)
+
+        post.blog_image= image_file
+    headline_image= headline.blog_image
+
+    return render_template('index.html',posts=posts,headline_image=headline_image,headline=headline)

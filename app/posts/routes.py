@@ -18,8 +18,9 @@ def create():
         if form.blog_image.data:
             picture=save_postsImage(form.blog_image.data)
             post = Posts(title=form.title.data,
-                        content=form.content.data, user_id=current_user.id,category=form.category.data,
-                        blog_image=picture)
+                        content=form.content.data,description=form.description.data, user_id=current_user.id,category=form.category.data,
+                        blog_image=picture,
+                        )
         
             db.session.add(post)  
             db.session.commit()
@@ -40,8 +41,12 @@ def create():
 
 @posts.route('/categories/<category>')
 def categories(category):
-    pitches = Posts.query.filter_by(category=category)
-    return render_template('categories.html', pitches=pitches)
+    posts = Posts.query.filter_by(category=category)
+    for post in posts:
+        image_file= url_for('static',filename='posts/'+post.blog_image)
+
+        post.blog_image= image_file
+    return render_template('categories.html', posts=posts)
 
 @login_required
 @posts.route('/post/edit/<postid>',methods=['POST', 'GET'])

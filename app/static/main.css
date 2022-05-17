@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+body{
+  background-color:#EAE2B7 ;
+}
 
 .bg-image {
   background-image: url('../static/assets/profilepics/register.png');
@@ -10,7 +13,9 @@
   background-position: center;
   height: 100vh;
 }
-
+.card{
+  background-color: transparent;
+}
 .login {
   min-height: 100vh;
   background-color: #EAE2B7;

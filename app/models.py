@@ -25,6 +25,7 @@ class Posts(db.Model):
   """
   id=db.Column(db.Integer,primary_key=True)
   title=db.Column(db.String,nullable=False)
+  description=db.Column(db.String,nullable=False)
   content=db.Column(db.String,nullable=False)
   blog_image=db.Column(db.String,nullable=False,)
   category= db.Column(db.String,nullable=False)

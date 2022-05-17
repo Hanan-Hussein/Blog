@@ -1,20 +1,31 @@
 {% extends 'layout.html' %}
 {% block body %}
 <div class="container">
-  <div class="row">
+  <div class="headline d-flex my-5">
+    <img src="{{headline_image}}" alt="">
+    <div>
+      <p class="h3 mx-5">{{headline.title}}</p>
+
+      <p class="mx-5">{{headline.description}}</p>
+
+    </div>
+  </div>
+  <div class="row"> <div class="row">
     {% for post in posts %}
     <div class="col-md-4">
-
       <div class="card mx card-border" style="width:300px">
-        <img class="card-img-top" src="{{image_file}}" alt="Card image" style="width:100%">
-        <div class="card-body mx-0 px-0">
+        <img class="card-img-top" src="{{post.blog_image}}" alt="Card image" style="width:100%">
+
+        <div class="card-body mx-0 px-0"> 
           <h4 class="card-title mx-0 px-0">{{post.title}}</h4>
-          <p class="card-text">{{post.content}}</p>
+          <p class="card-text">{{post.description}}</p>
           <a href="#" class="btn btn-primary homebtn">Read article</a>
         </div>
       </div>
     </div>
     {% endfor %}
+  </div>
+   
   </div>
 
 </div>

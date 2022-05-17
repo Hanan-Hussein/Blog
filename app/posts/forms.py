@@ -9,8 +9,9 @@ class PostForm(FlaskForm):
         FlaskForm (_type_): _description_
     """
     title=StringField('Title', validators=[DataRequired()])
-    content=TextAreaField('Content', validators=[DataRequired(),Length(min=2, max=300)])
-    blog_image= FileField('Post Image', validators=[FileAllowed(['jpg','png'])])
+    description=TextAreaField('Description', validators=[DataRequired(),Length(min=2, max=300)])
+    content=TextAreaField('Content', validators=[DataRequired(),Length(min=2)])
+    blog_image= FileField('Post Image', validators=[FileAllowed(['jpg','png','svg','jpeg','gif'])])
     category=RadioField('Category', choices = [('Food','Food'),('Technology','Technology'),('Fashion','Fashion'),('Travel','Travel')])
 
     submit = SubmitField('Create Post')

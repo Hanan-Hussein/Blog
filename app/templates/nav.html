@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+<nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
       <!-- <a class="navbar-brand" href="#">Navbar</a> -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,20 +8,20 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
               <li class="nav-item mx-2">
-                  <a class="nav-link active  text-black" aria-current="page" href="./index.html">Home</a>
+                  <a class="nav-link active  text-black" aria-current="page" href="/">Home</a>
               </li>
               <li class="nav-item mx-2">
-                  <a class="nav-link text-black" href="./pages/nairobi.html">Food</a>
+                  <a class="nav-link text-black" href="{{url_for('posts.categories',category='Food')}}">Food</a>
               </li>
               <li class="nav-item mx-2">
-                  <a class="nav-link text-black" href="./pages/mombasa.html">Technology</a>
+                  <a class="nav-link text-black" href="{{url_for('posts.categories',category='Technology')}}">Technology</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link text-black" href="./pages/kisumu.html">Fashion</a>
+                <a class="nav-link text-black" href="{{url_for('posts.categories',category='Fashion')}}">Fashion</a>
             </li>
 
             <li class="nav-item mx-2">
-                <a class="nav-link text-black" href="./pages/booking.html">Travel</a>
+                <a class="nav-link text-black" href="{{url_for('posts.categories',category='Travel')}}">Travel</a>
             </li>
 
           </ul>
@@ -39,7 +39,7 @@
                   <a class="nav-link text-black" href="./pages/booking.html">Account</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link text-black">Log out</a>
+                <a class="nav-link text-black" href="{{url_for('users.logout')}}">Log out</a>
             </li>
               <li class="nav-item mx-2 my-2">
                   <a href="nav-link" class="text-black d-inline" id="darkMode"> <span class=" text-center iconify" data-icon="ic:round-dark-mode"></span>

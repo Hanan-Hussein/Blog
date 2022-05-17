@@ -37,9 +37,9 @@ def save_postsImage(form_posts):
 
     picture_path=os.path.join(current_app.root_path,'static/posts',picture_fn)
 
-    output_size=(125,125)
+    # output_size=(125,125)
     i=Image.open(form_posts)
-    i.thumbnail(output_size)
+    # i.thumbnail(output_size)
 
     i.save(picture_path)
     return picture_fn
