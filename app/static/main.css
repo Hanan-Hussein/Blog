@@ -47,3 +47,7 @@
 .card-border{
   border: none !important;
 }
+.brand{
+  font-family: 'Sacramento';
+  font-size:22px
+}
