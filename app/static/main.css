@@ -38,3 +38,12 @@
   border-color: #656565;
   background-color:transparent
 }
+
+.homebtn{
+  background-color: transparent;
+  border-color: #000000;
+  color:#000000
+}
+.card-border{
+  border: none !important;
+}

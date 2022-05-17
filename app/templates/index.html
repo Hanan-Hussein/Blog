@@ -1,4 +1,21 @@
 {% extends 'layout.html' %}
 {% block body %}
-  <p class="text-danger h1">ksdjhcdjchb</p>
+<div class="container">
+  <div class="row">
+    {% for post in posts %}
+    <div class="col-md-4">
+
+      <div class="card mx" style="width:300px">
+        <img class="card-img-top" src="{{image_file}}" alt="Card image" style="width:100%">
+        <div class="card-body card-border">
+          <h4 class="card-title">{{post.title}}</h4>
+          <p class="card-text">{{post.content}}</p>
+          <a href="#" class="btn btn-primary homebtn">Read article</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+</div>
 {% endblock %}>

@@ -15,17 +15,25 @@ posts= Blueprint('posts',__name__)
 def create():
     form = PostForm()
     if form.validate_on_submit():
-
-        picture=save_picture(form.blog_image.data)
-        post = Posts(title=form.title.data,
-                      content=form.content.data, user_id=current_user.id,category=form.category.data,
-                      blog_image=picture)
+        if form.blog_image.data:
+          picture=save_postsImage(form.blog_image.data)
+          post = Posts(title=form.title.data,
+                        content=form.content.data, user_id=current_user.id,category=form.category.data,
+                        blog_image=picture)
         
-        db.session.add(post)
-        db.session.commit()
+          db.session.add(post)  
+          db.session.commit()
+          flash('Your pitch was successfully added','success')
 
-        flash('Your pitch was successfully added')
-        return redirect(url_for('main.home'))
+          return redirect(url_for('main.home'))
+
+
+        else:
+          
+          flash('Your pitch image was not added','danger')
+          
+
+
     return render_template('create.html', form=form, title='New Post')
 
 

@@ -45,20 +45,7 @@
                     {{form.content(class='form-control')}}
                 {% endif %}
             </div>
-
-            <div class="form-group">
-              {{ form.blog_image.label()}} <br>
-              {{ form.blog_image(class="form-control-file") }}
-    
-              {% if form.blog_image.error %}
-                {% for error in form.blog_image.errors %}
-                   <span class="text-danger">{{ error }}</span> <br>
-                {% endfor %}
-              {% endif %}
-    
-    
-            </div>
-         
+            
             <div class="text-center my-3">
                 {{form.submit(class='btn btn-outline')}}
             </div>
