@@ -5,7 +5,6 @@ from app.models import Posts
 from app import db
 from flask import render_template, url_for, flash, redirect, request
 from app.users.utils import save_postsImage,save_picture
-
 posts= Blueprint('posts',__name__)
 
 
@@ -37,8 +36,6 @@ def create():
     return render_template('create.html', form=form, title='New Post')
 
 
-
-
 @posts.route('/categories/<category>')
 def categories(category):
     posts = Posts.query.filter_by(category=category)
@@ -62,7 +59,7 @@ def post_edit(postid):
         
         db.session.add(edites)
         db.session.commit()
-        flash('Your Pitch Has been updated!','success')
+        flash('Your Post Has been updated!','success')
         return redirect(url_for("main.home"))
     else:
         form.title.data=edites.title
@@ -71,10 +68,10 @@ def post_edit(postid):
         
     return render_template('post_edit.html',form=form)
 
-@posts.route('/post/delete/<pitchid>')
-def post_delete(pitchid):
-    pitch = Posts.query.filter_by(id=pitchid).first()
-    db.session.delete(pitch)
+@posts.route('/post/delete/<postid>')
+def post_delete(postid):
+    post = Posts.query.filter_by(id=postid).first()
+    db.session.delete(post)
     db.session.commit()
     return redirect(url_for('main.home'))
 

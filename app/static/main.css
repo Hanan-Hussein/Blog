@@ -9,6 +9,9 @@ body{
 .readmore{
   line-height: 2rem; 
 }
+.categories{
+  border-style: none
+}
 .bg-image {
   background-image: url('../static/assets/profilepics/register.png');
   background-size: cover;
@@ -51,10 +54,41 @@ body{
   border-color: #000000;
   color:#000000
 }
+.homebtn:hover,.homebtn:active{
+  background-color: #000000;
+  border-color: #000000;
+  box-shadow: none !important;
+  color: #FFFFFF;
+}
 .card-border{
   border: none !important;
 }
 .brand{
   font-family: 'Sacramento';
   font-size:22px
+}
+.post_submit{
+  background-color: #041C32;
+  color: #FFFFFF;
+  border: none;
+}
+.post_submit:hover, .post_submit:active{
+  background-color: #041C32;
+  color: #FFFFFF !important;
+}
+.choose::-webkit-file-upload-button {
+  color: white;
+  display: inline-block;
+  background: #041C32;
+  border: none;
+  padding: 7px 15px;
+  font-weight: 700;
+  border-radius: 3px;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 10pt;
+}
+.choose::-webkit-file-upload-button:hover{
+  background: #041C32;
+
 }
