@@ -19,7 +19,7 @@
         <div class="card-body mx-0 px-0"> 
           <div class="d-flex justify-content-between">
             <p class="text-muted">{{post.category}}</p>
-            <p class="text-muted">{{post.date_created}}</p>
+            <p class="text-muted">{{post.date_created.strftime('%Y-%m-%d')}}</p>
           </div>
           <h4 class="card-title mx-0 px-0">{{post.title}}</h4>
           <p class="card-text">{{post.description}}</p>
