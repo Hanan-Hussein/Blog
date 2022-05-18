@@ -1,7 +1,7 @@
 from flask import Blueprint
 from flask_login import login_user, current_user, logout_user, login_required
 from app.posts.forms import PostForm,CommentsForm
-from app.models import Posts
+from app.models import Posts,Comments
 from app import db
 from flask import render_template, url_for, flash, redirect, request
 from app.users.utils import save_postsImage,save_picture
@@ -89,12 +89,23 @@ def comments(id):
     form = CommentsForm()
     posts = Posts.query.filter_by(id=id).first()
     if form.validate_on_submit():
-        posts.comments+=form.content.data + '~'
+        comment=Comments(comment=form.content.data,post_id=posts.id)
+        # posts.comments+=form.content.data + '~'
+        db.session.add(comment)
         db.session.commit()
-        flash('Your comment was added successfully')
+        flash('Your comment was added successfully','success')
         
         return redirect(url_for('main.home'))
     form.content.data = "Your comment here"
     return render_template('comments.html', form=form , posts=posts)
 
 
+@posts.route('/comment/delete/<id>')
+def comment_delete(id):
+    comm = Comments.query.filter_by(id=id).first()
+    
+    db.session.delete(comm)
+    db.session.commit()
+    flash('Your comment was deleted successfully','success')
+
+    return redirect(url_for('main.home'))

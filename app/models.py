@@ -29,12 +29,13 @@ class Posts(db.Model):
   content=db.Column(db.String,nullable=False)
   blog_image=db.Column(db.String,nullable=False,)
   category= db.Column(db.String,nullable=False)
-
-  comments= db.Column(db.String, default='')
   date_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
   user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-  
-
+  comments = db.relationship('Comments',backref = 'posts',passive_deletes = True)
+class Comments(db.Model):
+  id=db.Column(db.Integer,primary_key=True)
+  comment=db.Column(db.String)
+  post_id = db.Column(db.Integer, db.ForeignKey('posts.id',ondelete="CASCADE"), nullable=False)
 
   def __repr__(self):
       return f"id: {self.id} , title: {self.title}"

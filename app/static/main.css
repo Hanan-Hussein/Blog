@@ -63,6 +63,9 @@ body{
 .add{
   height: 2rem;
 }
+.delete{
+  color: #D62828;
+}
 .card-border{
   border: none !important;
 }

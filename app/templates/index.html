@@ -59,22 +59,38 @@
               </a>
             </div>
             <div class="collapse" id="comments{{post.id}}">
-              {% if post.comments %}
+              <!-- {% if post.comments %} -->
+
+
               <div class=" comments my-3">
                 <p>Comments</p>
-                {% for comment in  post.comments.split('~') %}
                 <div class="card m-1">
-                  <p class="lead">
-                    {{comment}}
+                  {% for com in post.comments %}
+                  <div class="d-flex justify-content-between">
 
-                    
-                  </p>
+                    <p class="lead fst-italic ">
+
+                      {{com.comment}}
+                      <div>
+
+                      {% if current_user.id == post.author.id %}
+                        <a href="{{url_for('posts.comment_delete',id=com.id)}}" class="text-decoration-none delete">Delete</a>
+
+                      {% endif %}
+                    </div>
+
+                    </p>
+                  </div>
+                  {% endfor %}
+
+
+
                 </div>
-                
-                {% endfor %}
+
 
               </div>
-              {% endif %}
+
+              <!-- {% endif %} -->
               <a href="{{url_for('posts.comments',id=post.id)}}" class="text-decoration-none text-dark">
                 <img class="add my-4" src="{{url_for('static',filename='/assets/add.png')}}" alt="">Add
               </a>
