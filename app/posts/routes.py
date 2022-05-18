@@ -1,8 +1,9 @@
 from flask import Blueprint
 from flask_login import login_user, current_user, logout_user, login_required
 from app.posts.forms import PostForm,CommentsForm
-from app.models import Posts,Comments
-from app import db
+from app.models import Posts,Comments,Subscribers
+from app import db, mail
+from flask_mail import  Message
 from flask import render_template, url_for, flash, redirect, request
 from app.users.utils import save_postsImage,save_picture
 posts= Blueprint('posts',__name__)
@@ -11,6 +12,7 @@ posts= Blueprint('posts',__name__)
 @login_required
 def create():
     form = PostForm()
+    sub=Subscribers.query.all()
     if form.validate_on_submit():
         if form.blog_image.data:
             picture=save_postsImage(form.blog_image.data)
@@ -18,9 +20,16 @@ def create():
                         content=form.content.data,description=form.description.data, user_id=current_user.id,category=form.category.data,
                         blog_image=picture,
                         )
+            topic=post.title
         
             db.session.add(post)  
-            db.session.commit()
+            db.session.commit()          
+
+
+            for s in sub:
+             msg=Message("Blog Update",sender="apollolibrary99@gmail.com",recipients=[s.email])
+             msg.body = "Have you read our newly updated blog called "+ topic +', be sure to check it out'
+             mail.send(msg)
             flash('Your pitch was successfully added','success')
 
             return redirect(url_for('main.home'))

@@ -58,6 +58,9 @@ def subscribe():
         
         db.session.add(sub)
         db.session.commit()
+        msg=Message("WELCOME",sender="apollolibrary99@gmail.com",recipients=[ussuber.email])
+        msg.body = "Welcome to H&J's Blog you Have Subscribed News Letter we will loop you on all newly updates"
+        mail.send(msg)
      
         flash('Your  Has Joined H&J Blog Subscription  ','success')
         return redirect(url_for('main.home'))
