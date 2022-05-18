@@ -1,52 +1,67 @@
-
 <nav class="navbar navbar-expand-lg">
-  <div class="container-fluid">
-      <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
-              <li class="nav-item mx-2">
-                  <a class="nav-link active  text-black" aria-current="page" href="/">Home</a>
-              </li>
-              <li class="nav-item mx-2">
-                  <a class="nav-link text-black" href="{{url_for('posts.categories',category='Food')}}">Food</a>
-              </li>
-              <li class="nav-item mx-2">
-                  <a class="nav-link text-black" href="{{url_for('posts.categories',category='Technology')}}">Technology</a>
-              </li>
-              <li class="nav-item mx-2">
-                <a class="nav-link text-black" href="{{url_for('posts.categories',category='Fashion')}}">Fashion</a>
-            </li>
+    <div class="container-fluid">
+        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+                <li class="nav-item mx-2">
+                    <a class="nav-link active  text-black" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link text-black" href="{{url_for('posts.categories',category='Food')}}">Food</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link text-black"
+                        href="{{url_for('posts.categories',category='Technology')}}">Technology</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link text-black" href="{{url_for('posts.categories',category='Fashion')}}">Fashion</a>
+                </li>
 
-            <li class="nav-item mx-2">
-                <a class="nav-link text-black" href="{{url_for('posts.categories',category='Travel')}}">Travel</a>
-            </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link text-black" href="{{url_for('posts.categories',category='Travel')}}">Travel</a>
+                </li>
 
-          </ul>
-          <ul class="navbar-nav">
-              <li class="nav-item list-unstyled "> 
-                  <a class="nav-link text-black brand">HJ Blog</a>
-              </li>
-          </ul>
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto ">
-              <li class="nav-item mx-2">
-                  <a class="nav-link text-black" href="{{url_for('users.subscribe')}}">Subscribe</a>
-              </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item list-unstyled ">
+                    <a class="nav-link text-black brand">HJ Blog</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto ">
+                <li class="nav-item mx-2">
+                    <a class="nav-link text-black" href="{{url_for('users.subscribe')}}">Subscribe</a>
+                </li>
 
-              <li class="nav-item mx-2">
-                  <a class="nav-link text-black" href="./pages/booking.html">Account</a>
-              </li>
-              <li class="nav-item mx-2">
-                <a class="nav-link text-black" href="{{url_for('users.logout')}}">Log out</a>
-            </li>
-              <li class="nav-item mx-2 my-2">
-                  <a href="nav-link" class="text-black d-inline" id="darkMode"> <span class=" text-center iconify" data-icon="ic:round-dark-mode"></span>
-                  </a>
-              </li>
-          </ul>
-        
-      </div>
-  </div>
-</nav>  
+                {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link active " href="{{url_for('posts.create')}}">Create Blog</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link text-black" href="{{url_for('users.account')}}">Account</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link text-black" href="{{url_for('users.logout')}}">Log out</a>
+                </li>
+                <li class="nav-item mx-2 my-2">
+                    <a href="nav-link" class="text-black d-inline" id="darkMode"> <span class=" text-center iconify"
+                            data-icon="ic:round-dark-mode"></span>
+                    </a>
+                </li>
+                {%else%}
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{url_for('users.login')}}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{url_for('users.register')}}">Register</a>
+                </li>
+                {% endif %}
+
+            </ul>
+
+        </div>
+    </div>
+</nav>

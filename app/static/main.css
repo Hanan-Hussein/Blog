@@ -31,11 +31,11 @@ body{
   letter-spacing: 0.05rem;
   padding: 0.75rem 1rem;
   color: #FFFFFF;
-  background-color: #3A6351;
+  background-color: #3A6351 !important;
 }
 
 .btn-login:hover {
-  background-color: #3A6351;
+  background-color: #3A6351 !important;
   color:#FFFFFF
 }
 .login-image{
@@ -49,21 +49,29 @@ body{
   background-color:transparent
 }
 
-.homebtn{
-  background-color: transparent;
-  border-color: #000000;
-  color:#000000
-}
+
 .homebtn:hover,.homebtn:active{
-  background-color: #000000;
-  border-color: #000000;
+  background-color: #000000 !important;
+  border-color: #000000 !important;
   box-shadow: none !important;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
+}
+.homebtn{
+  border-color: #000000 !important;
+  color:#000000 !important;
+  background-color: transparent !important;
+
+
 }
 .form-center {
   position: relative;
   width:100%;
   height:10em;
+} 
+.btn-primary{
+  background-color: #3A6351 ;
+  border-color: none ;
+  
 }
 .form-center form {
   position: absolute;
@@ -85,27 +93,36 @@ body{
   font-size:22px
 }
 .post_submit{
-  background-color: #041C32;
+  background-color: #041C32 !important;
   color: #FFFFFF;
   border: none;
 }
+.alert-success{
+  background-color: #003049!important;
+  color: #fff!important;
+  border: none!important;
+}
 .post_submit:hover, .post_submit:active{
-  background-color: #041C32;
+  background-color: #041C32 !important;
   color: #FFFFFF !important;
 }
 .choose::-webkit-file-upload-button {
   color: white;
-  display: inline-block;
+  /* display: inline-block; */
   background: #041C32;
   border: none;
-  padding: 7px 15px;
+  /* padding: 7px 15px; */
   font-weight: 700;
   border-radius: 3px;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   cursor: pointer;
-  font-size: 10pt;
+  /* font-size: 10pt; */
 }
 .choose::-webkit-file-upload-button:hover{
   background: #041C32;
 
+}
+input{
+  background-color: transparent !important;
+  border-color:gray !important
 }
