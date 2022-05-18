@@ -1,10 +1,11 @@
 # H&J's Blog
 ### By Hanan Hussein
 ### [Live Site](https://hjblog.azurewebsites.net/) 
-<img width="1440" alt="Screenshot 2022-05-12 at 11 58 44" src="https://user-images.githubusercontent.com/36597096/168045426-85711d92-2f92-4a57-a206-23cf8269ea1c.png">
-<img width="1440" alt="Screenshot 2022-05-12 at 11 59 02" src="https://user-images.githubusercontent.com/36597096/168045448-87998918-f8e8-41af-8c51-22c642125ee6.png">
+
+<img width="1440" alt="Screenshot 2022-05-18 at 19 14 09" src="https://user-images.githubusercontent.com/36597096/169102777-9974a437-c9f7-435e-a1d5-7cc005807073.png">
 
 
+<img width="1440" alt="Screenshot 2022-05-18 at 19 13 58" src="https://user-images.githubusercontent.com/36597096/169102788-58f0bac7-abb9-4a95-9adc-0caf5565ad16.png">
 
 ## Description 
 H&J's Blog is a website where users can read on fashion,travel, technology and food content, the users can also comment. Writers can sign up in the account , login and create their blog post by category plus accompany it with a picture. 
