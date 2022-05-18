@@ -52,3 +52,11 @@ class Login(FlaskForm):
     submit = SubmitField('Login')
 
 
+class Subscribe(FlaskForm):
+    """
+
+    Args:
+        Form (_type_): _description_
+    """
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    submit = SubmitField('Subscribe')

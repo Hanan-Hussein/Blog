@@ -60,6 +60,17 @@ body{
   box-shadow: none !important;
   color: #FFFFFF;
 }
+.form-center {
+  position: relative;
+  width:100%;
+  height:10em;
+}
+.form-center form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
 .add{
   height: 2rem;
 }

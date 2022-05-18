@@ -1,10 +1,10 @@
 from flask import Blueprint
 from flask_login import login_user, current_user, logout_user, login_required
 from flask import render_template, url_for, flash, redirect, request
-from app.users.forms import Register, Login
-from app import db,bcrypt
-
-from app.models import User
+from app.users.forms import Register, Login,Subscribe
+from app import db,bcrypt,mail
+from flask_mail import  Message
+from app.models import User, Subscribers
 
 users = Blueprint('users', __name__)
 
@@ -50,3 +50,17 @@ def logout():
     logout_user()
     return redirect(url_for('main.home'))
 
+@users.route('/subscribe', methods=['POST', 'GET'])
+def subscribe():
+    form=Subscribe()
+    if form.validate_on_submit():
+        sub=Subscribers(email=form.email.data)
+        
+        db.session.add(sub)
+        db.session.commit()
+     
+        flash('Your  Has Joined H&J Blog Subscription  ','success')
+        return redirect(url_for('main.home'))
+
+
+    return render_template('subscribe.html',form=form)
