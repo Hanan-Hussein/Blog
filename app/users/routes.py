@@ -79,7 +79,7 @@ def account():
     if form.validate_on_submit():
         if form.picture.data:
             picture=save_picture(form.picture.data)
-            current_user.profile=picture
+            current_user.image_file=picture
              
         current_user.username=form.username.data
         current_user.email=form.email.data

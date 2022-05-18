@@ -105,7 +105,7 @@ def comments(id):
         flash('Your comment was added successfully','success')
         
         return redirect(url_for('main.home'))
-    form.content.data = "Your comment here"
+    form.content.data = ""
     return render_template('comments.html', form=form , posts=posts)
 
 

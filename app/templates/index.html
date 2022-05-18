@@ -1,8 +1,11 @@
 {% extends 'layout.html' %}
 {% block body %}
 <div class="container">
-  <div class="headline d-flex my-5">
-    <img src="{{headline_image}}" alt="">
+  <div class="headline d-flex mt-4 mb-5">
+    <div>
+      <img src="{{headline_image}}" alt="">
+
+    </div>
     <div>
       <p class="h3 mx-5">{{headline.title}}</p>
 
@@ -73,11 +76,12 @@
                       {{com.comment}}
                       <div>
 
-                      {% if current_user.id == post.author.id %}
-                        <a href="{{url_for('posts.comment_delete',id=com.id)}}" class="text-decoration-none delete">Delete</a>
+                        {% if current_user.id == post.author.id %}
+                        <a href="{{url_for('posts.comment_delete',id=com.id)}}"
+                          class="text-decoration-none delete">Delete</a>
 
-                      {% endif %}
-                    </div>
+                        {% endif %}
+                      </div>
 
                     </p>
                   </div>

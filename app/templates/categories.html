@@ -10,7 +10,7 @@
           <div class="card-body mx-0 px-0"> 
             <h4 class="card-title mx-0 px-0">{{post.title}}</h4>
             <p class="card-text">{{post.description}}</p>
-            <a href="#" class="btn btn-primary homebtn">Read article</a>
+            <a href="{{url_for('posts.reads',postid=post.id)}}" class="btn btn-primary homebtn">Read article</a>
           </div>
         </div>
       </div>
